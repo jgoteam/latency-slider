@@ -1,6 +1,4 @@
 import { useState } from "react";
-import Box from "@mui/material/Box";
-import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import FormHelperText from "@mui/material/FormHelperText";
@@ -9,33 +7,23 @@ import VerticalSlider from "./components/VerticalSlider";
 import VerticalSliderContainer from "./components/VerticalSliderContainer";
 import "./App.css";
 
-/*
-Color Codes:
-
-Base: '#007FFF' light blue
-50 ms:          green
-150 ms:         yellow
-300 ms:         red
-
-*/
-
 function App() {
   const [mainSliderValue, setMainSliderValue] = useState(0);
   const [secondSliderlatency, setSecondSliderLatency] = useState(50);
 
-  const handleMainSliderChange = (e, value) => {
+  const handleMainSliderChange = (_e, value) => {
     setMainSliderValue(value);
   };
 
-  const handleLatencyChange = (event) => {
-    setSecondSliderLatency(event.target.value);
+  const handleLatencyChange = (e) => {
+    setSecondSliderLatency(e.target.value);
   };
 
   return (
     <>
-      <FormControl autoWidth sx={{ display: "inline-block" }}>
-        <FormHelperText sx={{ fontSize: "18px" }}>Latency</FormHelperText>
-        <Select value={secondSliderlatency} onChange={handleLatencyChange}>
+      <FormControl sx={{ display: "inline-block" }}>
+        <FormHelperText sx={{ fontSize: "17px" }}>Latency</FormHelperText>
+        <Select sx={{ width: "120px" }}value={secondSliderlatency} onChange={handleLatencyChange}>
           <MenuItem value={50}> 50 ms</MenuItem>
           <MenuItem value={150}>150 ms</MenuItem>
           <MenuItem value={300}>300 ms</MenuItem>
